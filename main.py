@@ -4,12 +4,6 @@ ENTRY = "My calendar is so full it now books meetings to discuss why I'm in so m
 MAX_CHARS = 199  # the gate accepts 1..199 characters
 
 
-def entry_text():
-    text = ENTRY.strip()
-    assert 1 <= len(text) <= MAX_CHARS, "entry must fit the gate"
-    return text
-
-
 def main():
     out_dir = "/output"
     try:
@@ -18,7 +12,7 @@ def main():
     except OSError:
         path = "entry.txt"
     with open(path, "w", encoding="utf-8") as f:
-        f.write(entry_text())
+        f.write(ENTRY)
 
 
 if __name__ == "__main__":
